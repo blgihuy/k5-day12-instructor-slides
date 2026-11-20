@@ -212,7 +212,7 @@ slide(
     <tr><td class="num">14:00</td><td><b>CP0 & CP1</b>: Chuẩn bị & Phase 1</td><td><b>PRD-0</b> (tổng quát, mơ hồ) + Test Contract</td><td>Tag <code>phase-1</code> trước 15:00</td></tr>
     <tr class="row-key"><td class="num">15:00</td><td><b>CP2</b>: Phase 2</td><td><b>Ticket-02</b> (yêu cầu mới, chống hồi quy)</td><td>Tag <code>phase-2</code> trước 16:00</td></tr>
     <tr><td class="num">16:00</td><td><b>CP3</b>: Phase 3</td><td><b>Ticket-03</b> (thay đổi luật cũ)</td><td>Tag <code>phase-3</code> trước 17:00</td></tr>
-    <tr class="row-key"><td class="num">17:00</td><td><b>CP4</b>: Phase 4 & Hoàn thiện</td><td><b>Ticket-04</b> (đo đạc số đo, đóng gói)</td><td>Tag <code>phase-4</code> trước 18:00</td></tr>
+    <tr class="row-key"><td class="num">17:00</td><td><b>CP4</b>: Phase 4 & Hoàn thiện</td><td><b>Ticket-04</b> (đo đạc số đo, đóng gói)</td><td>Tag <code>phase-4</code> trước 17:45</td></tr>
     <tr><td class="num">17:45</td><td><b>CP5</b>: Video & Nộp bài</td><td>Quay video demo &lt; 5p, tạo Release <code>v1.0.0</code></td><td>Chốt repo lúc 18:00</td></tr>
   </tbody>
 </table>
@@ -224,6 +224,7 @@ slide(
   <li>Mỗi phase kéo dài đúng 60 phút. Cần nhắc giờ ở phút 45 và phút 55 của mỗi phase.</li>
   <li>Hết giờ phase nào thì bắt buộc phải commit, tạo tag và push ngay.</li>
   <li>Sau mốc giờ của phase, commit mới cho phase đó có thể không được tính điểm.</li>
+  <li>Khung giờ lớp chiều: 14:00 đến 18:00 (mỗi phase 45–60 phút). Cần nhắc giờ ở phút 45 và phút 55 của mỗi phase.</li>
   <li>Lớp sáng bắt đầu lúc 09:00 (sớm hơn 5 tiếng): các mốc lần lượt là 09:00, 10:00, 11:00, 12:00, hết giờ 13:00.</li>
   <li>Chỗ nào chưa kịp làm xong: ghi trung thực "Chưa đạt" trong file bằng chứng. Ghi trung thực không bị trừ nặng bằng việc sửa kết quả hay giả tạo bằng chứng.</li>
 </ul>
@@ -240,7 +241,7 @@ slide(
   <li><b>CP1 Phase 1</b><span>14:10–15:00 · Đọc PRD-0, tách logic headless, test hợp đồng, tag <code>phase-1</code>.</span></li>
   <li><b>CP2 Phase 2</b><span>15:00–16:00 · Nhận Ticket-02, thêm tính năng, chống hồi quy, tag <code>phase-2</code>.</span></li>
   <li><b>CP3 Phase 3</b><span>16:00–17:00 · Nhận Ticket-03, xử lý đổi luật, sửa/bỏ test cũ có lý do, tag <code>phase-3</code>.</span></li>
-  <li><b>CP4 Phase 4</b><span>17:00–18:00 · Nhận Ticket-04, đo số đo thực tế, tạo Release <code>v1.0.0</code>, tag <code>phase-4</code>.</span></li>
+  <li><b>CP4 Phase 4</b><span>17:00–17:45 · Nhận Ticket-04, đo số đo thực tế, tạo Release <code>v1.0.0</code>, tag <code>phase-4</code>.</span></li>
   <li><b>CP5 Nộp bài</b><span>17:45–18:00 · Video &lt; 5p, ghi retro & token, kiểm tra checklist, nộp LMS.</span></li>
 </ol>
 <div class="grid grid-2">
@@ -601,48 +602,92 @@ slide(
 
 # 13 ── CP2 ──────────────────────────────────────────────────────────────
 slide(
-    "CP2: Phase 2 — Ticket-02 & Chống hồi quy",
+    "CP2: Phase 2 — Ticket-02: Ba hòn đảo",
     f"""
-<h2 class="title">CP2: Phase 2 — Tiếp nhận Ticket-02, chống hồi quy</h2>
-{meta(time="60 phút", when="15:00–16:00", who="Cá nhân", write="<code>docs/notes/phase2.md</code>, <code>AGENTS.md</code>", out="Tính năng mới chạy đúng, test Phase 1 không hỏng", tag="phase-2")}
+<h2 class="title">CP2: Phase 2 — Ticket-02: "Ba hòn đảo"</h2>
+{meta(time="60 phút", when="15:00–16:00", who="Cá nhân", write="<code>docs/notes/phase2.md</code>, <code>AGENTS.md</code>", out="Số liệu chuẩn hóa, 3 Đêm, chống hồi quy", tag="phase-2")}
 <div class="cp-layout">
   <div class="stack">
     <section class="panel">
-      <h3>Yêu cầu Phase 2 (Ticket-02)</h3>
-      <p>Mở tab Phase 2 trên lab board: đọc yêu cầu mới được bổ sung.</p>
-      <p><b>Thách thức:</b> Mở rộng tính năng game (cơ chế sương đen dày lên, đom đóm đặc biệt, hoặc AI Bóng Mực đuổi theo) mà <b>không làm hỏng những gì đã đúng ở Phase 1</b>.</p>
+      <h3>Yêu cầu cốt lõi Ticket-02 (Contract v1.1)</h3>
+      <p><b>Bối cảnh:</b> Đồng bộ số liệu chuẩn (thay toàn bộ số tự chọn ở Phase 1) để mọi bản chơi có cùng cảm giác điều khiển; mở rộng thành chuỗi 3 Đêm.</p>
+      <table class="data data--compact">
+        <thead><tr><th>Hạng mục</th><th>Số liệu chuẩn bắt buộc (60 tick/s, Y hướng lên)</th></tr></thead>
+        <tbody>
+          <tr><td>Di chuyển / Nhảy</td><td>Chạy 6.0 m/s (acc/dec ≤ 0.1s); Nhảy 7.0 m/s (g = −20 m/s²).</td></tr>
+          <tr><td>Lướt (mới)</td><td>14 m/s trong 0.2s; hồi chiêu 1.5s; giữ nguyên độ cao trên không.</td></tr>
+          <tr><td>Đom đóm</td><td>Max 10; nhặt khi XZ ≤ 1.0m, dY ≤ 1.5m; bắt đầu 20 con (trần 30, +1 con/4s).</td></tr>
+          <tr><td>Đèn lồng</td><td>10 đom đóm (nhớ tiến độ); tương tác 2.0m; vùng an toàn bán kính 6m.</td></tr>
+          <tr><td>Tỏa Sáng</td><td>3 đom đóm / 5m / hồi 3s → Bóng Mực choáng 120 tick, lùi 4m trong 15 tick.</td></tr>
+          <tr><td>Bóng Mực</td><td>Tốc độ 4.0 m/s (Đêm 3: 4.5 m/s); tầm nhìn 12m/18m; chạm → −1 Lửa, rơi floor(mang/2) đom đóm, bất tử 90 tick.</td></tr>
+        </tbody>
+      </table>
     </section>
-<pre class="code code--wrap"><span class="c"># Chạy lại toàn bộ kiểm chứng của Phase 1</span>
-python3 -m unittest discover -s tests
-python3 run_headless.py --scenario scenarios/phase1_regression.json
-python3 run_headless.py --scenario scenarios/phase2_new.json
-git tag phase-2 && git push origin phase-2</pre>
   </div>
   <div class="stack">
     {coach(
-        "<b>So sánh với giả định cũ:</b> Chỗ nào Ticket-02 làm rõ hoặc thay đổi giả định ở Phase 1, cập nhật ngay vào <code>phase2.md</code>.",
-        "<b>Viết kiểm chứng trước khi code:</b> Tạo scenario test tính năng mới trước khi để agent sinh code.",
-        "<b>Bắt đầu cập nhật Harness:</b> AI có mắc lỗi lặp lại không? Thêm quy tắc vào <code>AGENTS.md</code>.",
+        "<b>Đồng bộ số liệu chuẩn:</b> Bắt buộc thay toàn bộ hằng số tự chọn ở Phase 1 bằng bảng số chuẩn ở trên. Không được giữ số riêng.",
+        "<b>Chống hồi quy (Regression):</b> Test ẩn của Phase 1 sẽ được chạy lại trên số liệu chuẩn. Phải đảm bảo logic cũ không bị vỡ.",
+        "<b>Thứ tự 12 bước trong tick:</b> Input → Bộ đếm → Di chuyển → Nhặt → Đèn → Vùng an toàn → Tỏa Sáng → Quái → Chạm → Spawn → Thắng/Thua → Snapshot.",
     )}
     {anti(
-        "Code tính năng mới làm hỏng luôn chế độ headless của Phase 1.",
-        "Không chạy lại regression test cũ.",
+        "Quên không giới hạn sức chứa đom đóm là 10.",
+        "Cho nhân vật bất tử khi đang lướt (luật quy định: không bất tử khi lướt).",
+        "Chạy headless 1 Đêm vượt quá 30 giây.",
     )}
-    {check("Các kịch bản Phase 1 còn PASS 100% không? Tính năng mới có bằng chứng riêng chưa? Đã push tag <code>phase-2</code> chưa?")}
+    {check("Mọi hằng số đã khớp chuẩn chưa? Chạy headless 1 Đêm (21.600 tick) có xong trong ≤ 30s không? Đã gắn tag <code>phase-2</code> chưa?")}
   </div>
 </div>
 """,
     """
-<strong>Việc của Coach trong CP2</strong>
+<strong>Việc của Coach trong CP2 (Ticket-02)</strong>
 <ul>
   <li>Lúc 15:00 thông báo: "Phase 2 đã mở trên lab board, cả lớp đọc Ticket-02".</li>
-  <li>Nhắc nhở về chống hồi quy (regression): Khi thêm tính năng mới, AI rất hay vô tình sửa đổi signature hàm cũ hoặc làm sai logic cũ.</li>
-  <li>Học viên phải chứng minh được: kịch bản của Phase 1 vẫn chạy đúng nguyên vẹn.</li>
+  <li>Nhắc học viên: Những gì đã sáng tạo ở Phase 1 vẫn được giữ, nhưng các con số vật lý (vận tốc, bán kính, thời gian hồi) bắt buộc phải thay bằng số chuẩn.</li>
+  <li>Mục tiêu cốt lõi: Đảm bảo mọi game có cùng 'cảm giác điều khiển' (game feel) và cùng kết quả khi chạy headless.</li>
+  <li>Nhắc học viên kiểm tra thứ tự xử lý 1 tick (12 bước cố định).</li>
 </ul>
 """,
     cp="2",
     minutes=60,
     label="CP2 · Phase 2",
+    done=1,
+)
+
+# 13b ── Ticket-02 Mechanics ─────────────────────────────────────────────
+slide(
+    "Chi tiết Ticket-02: 3 Bản đồ, Gió Lạc & Bùa Gió",
+    """
+<h2 class="title">Chi tiết Ticket-02: 3 Bản đồ, Gió Lạc & Bùa Gió</h2>
+<div class="grid grid-2">
+  <section class="panel">
+    <h3>Bản đồ chuẩn 3 Đêm</h3>
+    <ul class="plain">
+      <li><b>Đêm 1 (Đảo Bến - 300s):</b> Đảo tròn r = 40m; 5 đèn (L1..L5); 24 điểm đom đóm; 2 Bóng Mực lúc 5s, sinh mỗi 8s (max 6 con).</li>
+      <li><b>Đêm 2 (Đảo Cau - 330s):</b> 2 đảo r = 28m cách nhau 70m, nối bằng cầu tre x ∈ [26,44]; <b>Bục nhảy</b> bắn Vy = 14 m/s, Vx = 24 m/s sang đảo kia (bay 1.4s); 6 đèn (L1..L6); Bóng Mực sinh mỗi 7s (max 8 con).</li>
+      <li><b>Đêm 3 (Đảo Chuông - 360s):</b> 3 tầng (Y=0, Y=3, Y=6); 2 dốc thẳng 3m (30° và 150°); bục nhảy (0,3,13) đáp lên tầng 2; tháp chuông r=2m cao 8m; 7 đèn (L1..L7); <b>Gió mạnh</b> mỗi 30s thổi 5s đẩy 2 m/s; max 10 Bóng Mực.</li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h3>Kẻ địch & Cơ chế mới</h3>
+    <ul class="plain">
+      <li><b>Gió Lạc (Đêm 2 & 3):</b> Bay 7 m/s, max 2 con. Mang ≥ 5 đom đóm &amp; cách ≤ 15m → đuổi theo (chase). Chạm (XZ ≤ 1.2m) → cướp min(3, mang) đom đóm rồi bay chạy trốn (flee) 240 tick. Tỏa Sáng trúng → thả lại đom đóm rơi.</li>
+      <li><b>Bùa Gió:</b> Nhặt như đom đóm, hiệu lực 600 tick → tốc độ chạy tăng lên 7.2 m/s và <b>Lướt không hồi chiêu</b>! Respawn sau 2700 tick.</li>
+      <li><b>Contract v1.1:</b> 5 trạng thái Bóng Mực: <code>spawning</code>, <code>wander</code>, <code>chase</code>, <code>recoil</code>, <code>stunned</code>. Bổ sung sự kiện <code>dash</code>, <code>charm_picked</code>, <code>drifter_steal</code>.</li>
+    </ul>
+    <p class="cp-ref">HUD đầy đủ: Máu 3 Ngọn Lửa, đồng hồ mm:ss, đèn k/n, thanh đom đóm 10 ô, hồi chiêu.</p>
+  </section>
+</div>
+""",
+    """
+<strong>Điểm cần lưu ý khi hỗ trợ học viên ở Ticket-02</strong>
+<ul>
+  <li>Gió Lạc không gây sát thương Máu (không trừ Ngọn Lửa), chỉ cướp đom đóm. Vùng an toàn của đèn không chặn được Gió Lạc.</li>
+  <li>Bục nhảy (Jump pad): Khi chạm bục, vận tốc phóng giữ nguyên tới khi chạm đất. Phím di chuyển không được ghi đè vận tốc phóng, nhưng nhân vật vẫn được phép lướt (dash) khi đang bay.</li>
+  <li>Gió mạnh ở Đêm 3: Có cảnh báo trước 2 giây bằng hiệu ứng lá bay và âm thanh.</li>
+</ul>
+""",
+    cp="2",
     done=1,
 )
 
@@ -699,48 +744,97 @@ slide(
 
 # 15 ── CP3 ──────────────────────────────────────────────────────────────
 slide(
-    "CP3: Phase 3 — Ticket-03: Xử lý thay đổi luật cũ",
+    "CP3: Phase 3 — Ticket-03: Change Request 'Đèn cạn dầu'",
     f"""
-<h2 class="title">CP3: Phase 3 — Xử lý thay đổi yêu cầu và luật cũ</h2>
-{meta(time="60 phút", when="16:00–17:00", who="Cá nhân", write="<code>docs/notes/phase3.md</code>, tests", out="Thiết kế mới thích ứng, test cũ được xử lý có lý do", tag="phase-3")}
+<h2 class="title">CP3: Phase 3 — Ticket-03: "Đèn cạn dầu"</h2>
+{meta(time="60 phút", when="16:00–17:00", who="Cá nhân", write="<code>docs/notes/phase3.md</code>, tests, ADR", out="Cơ chế dầu đèn, đổi luật thắng, cập nhật test", tag="phase-3")}
 <div class="cp-layout">
   <div class="stack">
     <section class="panel">
-      <h3>Yêu cầu Phase 3 (Ticket-03)</h3>
-      <p>Mở tab Phase 3 trên lab board: tiếp nhận thay đổi có thể <b>thay thế hoặc phủ định</b> luật cũ.</p>
-      <p>Ví dụ: cách đom đóm tương tác với sương đen thay đổi, cơ chế thắp lồng đèn có điều kiện mới khiến một số test ở Phase 1/2 không còn đúng.</p>
+      <h3>Change Request: Thay thế 4 luật cũ cốt lõi</h3>
+      <p><b>Bối cảnh:</b> Playtest cho thấy người chơi thắp xong trong 2 phút rồi chờ. Nhà sản xuất đổi mục tiêu từ <i>"thắp hết đèn"</i> thành <i>"giữ đảo sáng tới bình minh"</i>.</p>
+      <table class="data data--compact">
+        <thead><tr><th>Luật cũ (Phase 1–2)</th><th>Luật mới Ticket-03 (Bắt buộc thay thế)</th></tr></thead>
+        <tbody>
+          <tr><td>Đèn sáng vĩnh viễn</td><td><b>Dầu đèn (Max 100):</b> Tự cạn 1.0 đơn vị/giây (1/60 tick). Nạp dầu: <code>min(carried, ceil((100-fuel)/10))</code>. Hết dầu tắt đèn (<code>lantern_out</code>). Thắp lại cần <b>5 đom đóm</b>.</td></tr>
+          <tr><td>Vùng an toàn cố định</td><td><b>Bóng Mực hút dầu:</b> Khi fuel &lt; 30 mất an toàn; Bóng Mực wander tới đèn gần ≤ 2m chuyển sang <code>drain</code> hút 5 dầu/s. Nạp ≥ 30 bật lại an toàn đẩy quái 6m.</td></tr>
+          <tr><td>Thắp hết đèn là thắng ngay</td><td><b>KHÔNG CÒN THẮNG SỚM:</b> Phải sống tới bình minh (240s / 270s / 300s) VÀ giữ số đèn sáng ≥ 60% (Đ1: 3/5, Đ2: 4/6, Đ3: 5/7 đèn).</td></tr>
+          <tr><td>Điểm thưởng thời gian</td><td><b>Bỏ thưởng thời gian:</b> Nạp +5, thắp đầu +100, thắp lại +40, Tỏa Sáng trúng drain +15 (thường +5). Bình minh: +50 + floor(fuel)/đèn sáng, +50/Lửa.</td></tr>
+        </tbody>
+      </table>
     </section>
-<pre class="code code--wrap"><span class="c"># Rà soát và cập nhật bộ test</span>
-# Test nào bị luật mới làm sai: SỬA hoặc BỎ KÈM LÝ DO
-# Tuyệt đối không xóa âm thầm hoặc tắt test không giải thích!
-git tag phase-3
-git push origin phase-3</pre>
   </div>
   <div class="stack">
     {coach(
-        "<b>Liệt kê ảnh hưởng:</b> Liệt kê danh sách test, tài liệu và giả định cũ bị luật mới thay thế vào <code>docs/notes/phase3.md</code>.",
-        "<b>Ghi lý do đổi hướng:</b> Viết ngắn gọn 1 đoạn giải thích bạn điều chỉnh kiến trúc game như thế nào.",
-        "<b>Không giấu test hỏng:</b> Sửa test hoặc đánh dấu <code>@skip(reason='replaced by Ticket-03')</code> kèm lý do rõ ràng.",
+        "<b>Đặc thù kỹ thuật:</b> Đây là Breaking Change thực tế. Đừng cãi khách hàng, hãy thích ứng kiến trúc và phân tích tác động (Impact Analysis).",
+        "<b>Rà soát bộ test cũ:</b> Test nào mâu thuẫn luật mới (test thắng sớm, test đèn vĩnh cửu) phải <b>sửa lại hoặc đánh dấu skip có lý do</b>.",
+        "<b>Viết ADR (Bắt buộc trong DoD):</b> Ghi file <code>docs/notes/adr-002-lantern-fuel.md</code> giải thích vì sao sửa state machine của đèn và điều kiện thắng.",
     )}
     {anti(
-        "Âm thầm xóa bỏ các bài test bị đỏ mà không ghi lại lý do.",
-        "Để agent tự ý đảo lộn toàn bộ cấu trúc thư mục mà không kiểm soát.",
+        "Âm thầm xóa bỏ các test bị đỏ mà không giải trình lý do trong tài liệu.",
+        "Giữ lại logic thắng sớm khiến kết quả scenario headless chạy sai.",
+        "Bỏ qua cơ chế hút dầu <code>drain</code> của Bóng Mực.",
     )}
-    {check("Người khác đọc ghi chú có hiểu vì sao bạn đổi luật không? Có còn test nào bị tắt không lý do không? Đã gắn tag <code>phase-3</code> chưa?")}
+    {check("Đèn có cạn dầu 1/s và tắt khi fuel ≤ 0 không? Test cũ bị ảnh hưởng đã được sửa/bỏ kèm lý do chưa? Đã có file ADR và tag <code>phase-3</code> chưa?")}
   </div>
 </div>
 """,
     """
-<strong>Việc của Coach trong CP3</strong>
+<strong>Việc của Coach trong CP3 (Ticket-03)</strong>
 <ul>
-  <li>Lúc 16:00: Thông báo mở Phase 3.</li>
-  <li>Nhấn mạnh: Trong dự án thật, yêu cầu của khách hàng thường xuyên thay đổi. Kỹ sư giỏi không phải là người cãi khách hàng, mà là người biết thích ứng kiến trúc và quản lý tác động (impact analysis).</li>
-  <li>Chấm điểm sẽ soi rất kỹ: các test cũ bị thay đổi có được ghi chú lý do đàng hoàng không.</li>
+  <li>Lúc 16:00: Thông báo mở Phase 3: "Ticket-03 đã lên, đây là Change Request thay đổi luật chơi căn bản".</li>
+  <li>Nhấn mạnh 4 THAY THẾ cốt lõi: (1) Dầu đèn & tắt đèn, (2) Quái hút dầu (drain), (3) Không còn thắng sớm, cần ≥ 60% đèn sáng lúc bình minh, (4) Bảng điểm mới.</li>
+  <li>Chấm điểm mục C & A soi rất kỹ: Học viên xử lý các bài test cũ thế nào? Tuyệt đối không xóa test âm thầm. Phải có file ADR hoặc ghi rõ trong phase3.md.</li>
 </ul>
 """,
     cp="3",
     minutes=60,
     label="CP3 · Phase 3",
+    done=2,
+)
+
+# 15b ── Ticket-03 Mechanics ─────────────────────────────────────────────
+slide(
+    "Chi tiết Ticket-03: Luật thắng 60%, Mù màu & DoD",
+    """
+<h2 class="title">Chi tiết Ticket-03: Luật thắng 60%, Mù màu & DoD</h2>
+<div class="grid grid-2">
+  <section class="panel">
+    <h3>Cơ chế mới & Mở rộng quy mô</h3>
+    <ul class="plain">
+      <li><b>Rút ngắn thời gian:</b> Đêm 1: 240s, Đêm 2: 270s, Đêm 3: 300s (thay cho 300/330/360s). Giúp giảm độ ngấy và tăng nhịp độ dồn dập.</li>
+      <li><b>Điều kiện thắng ≥ 60%:</b> Đến đúng tick bình minh: Đêm 1 cần ≥ 3/5 đèn sáng; Đêm 2 cần ≥ 4/6 đèn sáng; Đêm 3 cần ≥ 5/7 đèn sáng. Dưới ngưỡng → thua (<code>dawn_insufficient_lanterns</code>). Hết máu → thua ngay (<code>no_flames</code>).</li>
+      <li><b>Mở rộng túi đom đóm:</b> Ban đầu sức chứa 10. Mỗi lần thắp đèn thành công (lần đầu hoặc thắp lại) → tăng +2 sức chứa, trần tối đa 20 đom đóm (<code>10 + 2 * lights, cap 20</code>).</li>
+      <li><b>Hỗ trợ mù màu (Accessibility):</b> Mắt Bóng Mực màu cyan <code>#00B3FF</code>; Vành nguy hiểm fuel &lt; 30 có viền trắng <code>#FFFFFF</code> và icon <code>⚠</code>; Đèn hết dầu thu nhỏ 20% và có icon giọt nước.</li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h3>Quy định DoD (Definition of Done) bắt buộc</h3>
+    <ul class="plain">
+      <li><b>Architecture Decision Record (ADR):</b> Viết 1 file ADR (ví dụ <code>docs/notes/adr-002-lantern-fuel.md</code>) ghi nhận: Bối cảnh, các giải pháp cân nhắc, lý do chọn mô hình State Machine mới cho đèn (<code>unlit</code> → <code>lit</code> ⇄ <code>lantern_out</code>) và luật thắng mới.</li>
+      <li><b>Changelog:</b> Bảng tổng hợp breaking changes đối với Phase 1 và Phase 2.</li>
+      <li><b>Rà soát bộ test (Traceability):</b> Bảng liệt kê:
+        <ul>
+          <li>Test nào còn đúng và giữ nguyên.</li>
+          <li>Test nào phải cập nhật số liệu (thời gian đêm, sức chứa túi).</li>
+          <li>Test nào bị bãi bỏ (ví dụ: test thắng sớm khi thắp đủ đèn) kèm lý do viện dẫn Ticket-03.</li>
+        </ul>
+      </li>
+    </ul>
+    <p class="cp-ref">Test contract v1.2: Bổ sung event <code>lantern_out</code>, <code>relight</code>, <code>drain_start</code>, <code>drain_stop</code>.</p>
+  </section>
+</div>
+""",
+    """
+<strong>Điểm cần lưu ý khi hướng dẫn Ticket-03</strong>
+<ul>
+  <li>Nhắc học viên: Thắp lại đèn (Relight) chỉ tốn 5 đom đóm, khác với lần đầu thắp (10 đom đóm).</li>
+  <li>Trạng thái Bóng Mực: bổ sung state <code>drain</code> vào enum trạng thái bên cạnh <code>spawning</code>, <code>wander</code>, <code>chase</code>, <code>recoil</code>, <code>stunned</code>.</li>
+  <li>Đánh trúng Bóng Mực đang hút dầu bằng Tỏa Sáng: cộng hẳn 15 điểm (thay vì 5 điểm thường).</li>
+  <li>Nhấn mạnh với lớp: Bài lab này chấm kỹ năng SDLC và quản lý thay đổi phần mềm, không chỉ chấm khả năng code ban đầu.</li>
+</ul>
+""",
+    cp="3",
     done=2,
 )
 
@@ -793,7 +887,7 @@ slide(
     "CP4: Phase 4 — Ticket-04: Đo đạc & Phát hành v1.0.0",
     f"""
 <h2 class="title">CP4: Phase 4 — Hoàn thiện, đo đạc & Release v1.0.0</h2>
-{meta(time="60 phút", when="17:00–18:00", who="Cá nhân", write="<code>README.md</code>, <code>CREDITS.md</code>", out="Bản phát hành chạy được, Release v1.0.0", tag="phase-4")}
+{meta(time="60 phút", when="17:00–17:45", who="Cá nhân", write="<code>README.md</code>, <code>CREDITS.md</code>", out="Bản phát hành chạy được, Release v1.0.0", tag="phase-4")}
 <div class="cp-layout">
   <div class="stack">
     <section class="panel">
@@ -825,7 +919,7 @@ gh release create v1.0.0 --title "v1.0.0 - Bản phát hành chính thức" \\
 <strong>Việc của Coach trong CP4</strong>
 <ul>
   <li>Lúc 17:00: Mở Phase 4.</li>
-  <li>Nhắc học viên dành ít nhất 15 phút cuối của giờ thứ tư cho CP5 (quay video và nộp bài).</li>
+  <li>Nhắc học viên dành 15 phút cuối (17:45–18:00) cho CP5 (quay video và nộp bài).</li>
   <li>Kiểm tra xem học viên đã tạo GitHub Release v1.0.0 chưa. Release bắt buộc phải có file đính kèm hoặc link thư mục chạy được.</li>
 </ul>
 """,
