@@ -691,6 +691,43 @@ slide(
     done=1,
 )
 
+# 13b ── Ticket-02 Mechanics ─────────────────────────────────────────────
+slide(
+    "Chi tiết Ticket-02: 3 Bản đồ, Gió Lạc & Bùa Gió",
+    """
+<h2 class="title">Chi tiết Ticket-02: 3 Bản đồ, Gió Lạc & Bùa Gió</h2>
+<div class="grid grid-2">
+  <section class="panel">
+    <h3>Bản đồ chuẩn 3 Đêm</h3>
+    <ul class="plain">
+      <li><b>Đêm 1 (Đảo Bến - 300s):</b> Đảo tròn r = 40m; 5 đèn (L1..L5); 24 điểm đom đóm; 2 Bóng Mực lúc 5s, sinh mỗi 8s (max 6 con).</li>
+      <li><b>Đêm 2 (Đảo Cau - 330s):</b> 2 đảo r = 28m cách nhau 70m, nối bằng cầu tre x ∈ [26,44]; <b>Bục nhảy</b> bắn Vy = 14 m/s, Vx = 24 m/s sang đảo kia (bay 1.4s); 6 đèn (L1..L6); Bóng Mực sinh mỗi 7s (max 8 con).</li>
+      <li><b>Đêm 3 (Đảo Chuông - 360s):</b> 3 tầng (Y=0, Y=3, Y=6); 2 dốc thẳng 3m (30° và 150°); bục nhảy (0,3,13) đáp lên tầng 2; tháp chuông r=2m cao 8m; 7 đèn (L1..L7); <b>Gió mạnh</b> mỗi 30s thổi 5s đẩy 2 m/s; max 10 Bóng Mực.</li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h3>Kẻ địch & Cơ chế mới</h3>
+    <ul class="plain">
+      <li><b>Gió Lạc (Đêm 2 & 3):</b> Bay 7 m/s, max 2 con. Mang ≥ 5 đom đóm &amp; cách ≤ 15m → đuổi theo (chase). Chạm (XZ ≤ 1.2m) → cướp min(3, mang) đom đóm rồi bay chạy trốn (flee) 240 tick. Tỏa Sáng trúng → thả lại đom đóm rơi.</li>
+      <li><b>Bùa Gió:</b> Nhặt như đom đóm, hiệu lực 600 tick → tốc độ chạy tăng lên 7.2 m/s và <b>Lướt không hồi chiêu</b>! Respawn sau 2700 tick.</li>
+      <li><b>Contract v1.1:</b> 5 trạng thái Bóng Mực: <code>spawning</code>, <code>wander</code>, <code>chase</code>, <code>recoil</code>, <code>stunned</code>. Bổ sung sự kiện <code>dash</code>, <code>charm_picked</code>, <code>drifter_steal</code>.</li>
+    </ul>
+    <p class="cp-ref">HUD đầy đủ: Máu 3 Ngọn Lửa, đồng hồ mm:ss, đèn k/n, thanh đom đóm 10 ô, hồi chiêu.</p>
+  </section>
+</div>
+""",
+    """
+<strong>Điểm cần lưu ý khi hỗ trợ học viên ở Ticket-02</strong>
+<ul>
+  <li>Gió Lạc không gây sát thương Máu (không trừ Ngọn Lửa), chỉ cướp đom đóm. Vùng an toàn của đèn không chặn được Gió Lạc.</li>
+  <li>Bục nhảy (Jump pad): Khi chạm bục, vận tốc phóng giữ nguyên tới khi chạm đất. Phím di chuyển không được ghi đè vận tốc phóng, nhưng nhân vật vẫn được phép lướt (dash) khi đang bay.</li>
+  <li>Gió mạnh ở Đêm 3: Có cảnh báo trước 2 giây bằng hiệu ứng lá bay và âm thanh.</li>
+</ul>
+""",
+    cp="2",
+    done=1,
+)
+
 # 14 ── Technical: Harness ───────────────────────────────────────────────
 slide(
     "Xây dựng Harness AI hiệu quả",
@@ -884,48 +921,110 @@ slide(
 
 # 17 ── CP4 ──────────────────────────────────────────────────────────────
 slide(
-    "CP4: Phase 4 — Ticket-04: Đo đạc & Phát hành v1.0.0",
+    "CP4: Phase 4 — Ticket-04: Bình minh v1.0.0",
     f"""
-<h2 class="title">CP4: Phase 4 — Hoàn thiện, đo đạc & Release v1.0.0</h2>
-{meta(time="60 phút", when="17:00–17:45", who="Cá nhân", write="<code>README.md</code>, <code>CREDITS.md</code>", out="Bản phát hành chạy được, Release v1.0.0", tag="phase-4")}
+<h2 class="title">CP4: Phase 4 — Ticket-04: "Bình minh: phát hành v1.0.0"</h2>
+{meta(time="45 phút", when="17:00–17:45", who="Cá nhân", write="<code>README.md</code>, <code>CHANGELOG.md</code>, <code>CREDITS.md</code>", out="bench.json, soak.json, Release v1.0.0", tag="phase-4")}
 <div class="cp-layout">
   <div class="stack">
     <section class="panel">
-      <h3>Yêu cầu Phase 4 (Ticket-04)</h3>
-      <p>Mở tab Phase 4 trên lab board: tiếp nhận các yêu cầu có <b>số đo định lượng cụ thể</b> (hiệu năng FPS, bộ nhớ RAM, thời gian load).</p>
-      <p><b>Đóng gói phát hành:</b> Tạo bản chạy được hoàn chỉnh (file thực thi, thư mục web tĩnh, hoặc Docker kèm hướng dẫn chạy trong tối đa 3 lệnh).</p>
+      <h3>Yêu cầu cốt lõi Ticket-04 (Contract v1.3)</h3>
+      <p><b>Mục tiêu:</b> Đưa game thành sản phẩm phát hành hoàn chỉnh: đo được hiệu năng, chạy bền vững, có bảng xếp hạng, dễ tiếp cận và cài đặt tối đa 3 lệnh.</p>
+      <table class="data data--compact">
+        <thead><tr><th>Hạng mục</th><th>Yêu cầu & Ngưỡng đạt cụ thể (Chấm trên máy chuẩn)</th></tr></thead>
+        <tbody>
+          <tr><td>Benchmark (3D)</td><td><code>&lt;bench_cmd&gt; --seed 42 --duration 30 --out bench.json</code><br>1280×720, 200 Bóng Mực wander, 100 đom đóm, 3 đèn sáng (L1–L3 fuel 100); Camera bay vòng r=30m Y=15m (15s/vòng); 3s khởi động. <b>Ngưỡng:</b> avg_fps ≥ 60, p1_low_fps ≥ 30, load_ms ≤ 10000.</td></tr>
+          <tr><td>Soak Test (Headless)</td><td><code>&lt;soak_cmd&gt; --seed 7 --nights 10 --out soak.json</code><br>Chạy 10 Đêm liên tục cùng tiến trình (seed 7+i), input ngẫu nhiên theo seed. <b>Ngưỡng:</b> crashes = 0, mem_end_mb ≤ 1.2 × mem_start_mb (không rò rỉ RAM).</td></tr>
+          <tr><td>Bảng xếp hạng</td><td>Top 10 lưu đĩa cục bộ (name, score, nights_won, ISO 8601, seed); có menu xem; lệnh xuất: <code>&lt;run_cmd&gt; --export-leaderboard out.json</code>.</td></tr>
+          <tr><td>Accessibility</td><td>Đổi phím (báo trùng phím, nút khôi phục); Phụ đề/mũi tên mép trỏ quái, cảnh báo gió, 10s cuối, đèn fuel &lt; 30; Giảm rung camera &amp; chớp màn hình; Font UI ≥ 18px (tùy chọn ×1.25).</td></tr>
+        </tbody>
+      </table>
     </section>
-<pre class="code code--wrap"><span class="c"># Gắn tag phase-4 và tạo GitHub Release v1.0.0</span>
-git tag phase-4 && git push origin phase-4
-# Tạo GitHub Release (giao diện web hoặc qua gh CLI)
-gh release create v1.0.0 --title "v1.0.0 - Bản phát hành chính thức" \\
-   --notes "Release hoàn thiện qua 4 phase SDLC"</pre>
   </div>
   <div class="stack">
     {coach(
-        "<b>Đo thực tế trên máy:</b> Chạy lệnh đo hiệu năng thật và lưu số liệu cùng cấu hình máy vào <code>docs/proof/perf.txt</code>.",
-        "<b>Làm sạch README:</b> Người khác clone sạch, làm theo README chỉ trong <b>tối đa 3 lệnh</b> là game phải chạy được.",
-        "<b>Giấy phép & Nguồn asset:</b> Hoàn thiện <code>LICENSE</code> và <code>CREDITS.md</code> ghi nguồn mọi asset, âm thanh, công cụ AI.",
+        "<b>Đo đạc trung thực:</b> Tự chạy benchmark và soak test trên máy của bạn, commit <code>bench.json</code> và <code>soak.json</code> vào repo.",
+        "<b>Cảnh benchmark chuẩn:</b> Bắt buộc tắt toàn bộ thực thể và hiệu ứng sáng tạo thêm để đảm bảo công bằng khi chấm trên máy giảng viên.",
+        "<b>README sạch tối đa 3 lệnh:</b> Người khác clone sạch repo là phải chạy được game ngay mà không cần cấu hình phức tạp.",
     )}
     {anti(
-        "README dài dòng, phức tạp, clone về không thể build được.",
-        "Quên tạo GitHub Release v1.0.0.",
+        "Quên commit file bench.json hoặc soak.json.",
+        "Cảnh benchmark không tắt nhân vật/quái tự chế làm sai lệch số đo FPS.",
+        "Thiếu Release v1.0.0 trên GitHub trước hạn 17:45.",
     )}
-    {check("Thử clone sang thư mục mới hoặc máy khác có chạy được không? Đã có tag <code>phase-4</code> và Release <code>v1.0.0</code> trên GitHub chưa?")}
+    {check("bench.json và soak.json đã có trong repo chưa? Chạy lệnh export leaderboard ra file JSON có đúng top 10 không? Đã tạo Release <code>v1.0.0</code> chưa?")}
   </div>
 </div>
 """,
     """
-<strong>Việc của Coach trong CP4</strong>
+<strong>Việc của Coach trong CP4 (Ticket-04)</strong>
 <ul>
-  <li>Lúc 17:00: Mở Phase 4.</li>
-  <li>Nhắc học viên dành 15 phút cuối (17:45–18:00) cho CP5 (quay video và nộp bài).</li>
-  <li>Kiểm tra xem học viên đã tạo GitHub Release v1.0.0 chưa. Release bắt buộc phải có file đính kèm hoặc link thư mục chạy được.</li>
+  <li>Lúc 17:00: Thông báo mở Phase 4 (Ticket-04). Nhắc học viên: đây là phase kiểm chuẩn phi chức năng (Non-functional) và đóng gói phát hành.</li>
+  <li>Nhắc nhở quan trọng: Trong cảnh benchmark, nhân vật/kẻ địch sáng tạo thêm ở Phase 1-2 bắt buộc phải TẮT để đo trên cùng một cảnh chuẩn.</li>
+  <li>Bộ nhớ trong soak test không được rò rỉ quá 20% sau 10 Đêm (mem_end <= 1.2 * mem_start).</li>
+  <li>Đúng 17:45: chuyển sang CP5 để nộp bài và quay video demo.</li>
 </ul>
 """,
     cp="4",
-    minutes=60,
+    minutes=45,
     label="CP4 · Phase 4 & Release",
+    done=3,
+)
+
+# 17b ── Ticket-04 Details ───────────────────────────────────────────────
+slide(
+    "Chi tiết Ticket-04: Benchmark, Soak, Accessibility & DoD",
+    """
+<h2 class="title">Chi tiết Ticket-04: Benchmark, Soak, Accessibility & DoD</h2>
+<div class="grid grid-2">
+  <section class="panel">
+    <h3>Quy chuẩn Benchmark & Soak Test</h3>
+    <ul class="plain">
+      <li><b>Định nghĩa số đo bench.json:</b>
+        <ul>
+          <li><code>avg_fps</code>: 1000 × N / Σ dt_i (khung hình / giây trung bình).</li>
+          <li><code>p1_low_fps</code>: 1% low FPS = 1000 / trung bình của 1% khung hình chậm nhất (dt lớn nhất).</li>
+          <li><code>frame_ms_p95</code>: Phân vị 95 của thời gian render khung hình (ms).</li>
+          <li><code>load_ms</code>: Từ lúc tiến trình bắt đầu tới khung hình đầu tiên của cảnh bench (≤ 10.000 ms).</li>
+        </ul>
+      </li>
+      <li><b>Soak test 10 Đêm liên tiếp:</b> Kiểm tra ổn định bộ nhớ (Memory Leak). Input ngẫu nhiên theo seed: mỗi 30 tick đổi hướng; 5% nhảy, 3% lướt, 2% tỏa sáng, 10% tương tác. Đạt khi 0 crash và RAM tăng ≤ 20%.</li>
+      <li><b>Contract v1.3:</b> Cập nhật <code>contract_version: "1.3"</code>, khai báo thêm <code>bench_cmd</code> và <code>soak_cmd</code>.</li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h3>Accessibility, Đóng gói & DoD Phase 4</h3>
+    <ul class="plain">
+      <li><b>Trợ năng (Accessibility):</b>
+        <ul>
+          <li>Đổi phím hoàn toàn (phát hiện trùng phím, lưu cấu hình, nút reset).</li>
+          <li>Chỉ báo hình ảnh: Mũi tên mép màn hình trỏ hướng Bóng Mực, cảnh báo gió, đèn fuel &lt; 30, đếm ngược 10s cuối.</li>
+          <li>Giảm chuyển động: Tắt rung camera, tắt chớp màn hình.</li>
+        </ul>
+      </li>
+      <li><b>Bộ tài liệu phát hành hoàn chỉnh:</b>
+        <ul>
+          <li><code>CHANGELOG.md</code> có mục cho cả 4 phase.</li>
+          <li><code>CREDITS.md</code> ghi nguồn asset, âm thanh, AI prompts/tools.</li>
+          <li><code>LICENSE</code> mã nguồn mở; <code>README.md</code> chơi được trong <b>tối đa 3 lệnh</b>.</li>
+        </ul>
+      </li>
+      <li><b>DoD bắt buộc:</b> Tag <code>phase-4</code>, Release <code>v1.0.0</code> có bản chạy được, commit <code>bench.json</code> và <code>soak.json</code> tự đo.</li>
+    </ul>
+    <p class="cp-ref">Bảng xếp hạng: Giữ top 10, lưu đĩa cục bộ, xuất qua <code>--export-leaderboard</code>.</p>
+  </section>
+</div>
+""",
+    """
+<strong>Điểm cần lưu ý khi hướng dẫn Ticket-04</strong>
+<ul>
+  <li>Chế độ headless và 3D benchmark đều phải chạy độc lập với nhau.</li>
+  <li>Soak test chạy headless nên hoàn thành rất nhanh (vài chục giây tới hơn 1 phút cho 10 Đêm), không mở cửa sổ đồ họa.</li>
+  <li>GitHub Release v1.0.0 bắt buộc phải có link tải bản chạy được hoặc thư mục web tĩnh / Docker image.</li>
+  <li>Nhắc học viên kiểm tra lại xem có bỏ sót file bench.json hay soak.json không.</li>
+</ul>
+""",
+    cp="4",
     done=3,
 )
 
