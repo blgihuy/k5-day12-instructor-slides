@@ -8,7 +8,7 @@ Nội dung xây dựng dựa trên tài liệu bài lab `VinUni-AI20k/K5-L3-LAB-
 
 ## 🚀 Live Demo
 
-- GitHub Pages: `https://sagitakdx.github.io/k5-day12-instructor-slides/`
+- GitHub Pages: `https://blgihuy.github.io/k5-day12-instructor-slides/`
 - Thêm tham số URL `?ca=sang` hoặc `?ca=chieu` để chuyển đổi ca thủ công.
 
 ---
@@ -82,9 +82,9 @@ Tất cả các mốc giờ trên slide, hạn nộp và ghi chú giảng viên 
    git add .
    git commit -m "feat: K5 Day 12 Instructor Slides"
    git branch -M main
-   git remote add origin https://github.com/SagitaKDX/k5-day12-instructor-slides.git
+   git remote add origin https://github.com/blgihuy/k5-day12-instructor-slides.git
    git push -u origin main
    ```
 
 2. File workflow tự động deploy `.github/workflows/deploy.yml` đã được cấu hình sẵn. Khi push lên nhánh `main`, GitHub Actions sẽ tự động build và xuất bản lên GitHub Pages tại:
-   `https://sagitakdx.github.io/k5-day12-instructor-slides/`
+   `https://blgihuy.github.io/k5-day12-instructor-slides/`
