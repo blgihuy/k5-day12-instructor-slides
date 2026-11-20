@@ -209,11 +209,11 @@ slide(
 <table class="data">
   <thead><tr><th>Giờ</th><th>Phase & Sự kiện</th><th>Bạn nhận</th><th>Hạn gắn tag</th></tr></thead>
   <tbody>
-    <tr><td class="num">13:30</td><td><b>CP0 & CP1</b>: Chuẩn bị & Phase 1</td><td><b>PRD-0</b> (tổng quát, mơ hồ) + Test Contract</td><td>Tag <code>phase-1</code> trước 14:30</td></tr>
-    <tr class="row-key"><td class="num">14:30</td><td><b>CP2</b>: Phase 2</td><td><b>Ticket-02</b> (yêu cầu mới, chống hồi quy)</td><td>Tag <code>phase-2</code> trước 15:30</td></tr>
-    <tr><td class="num">15:30</td><td><b>CP3</b>: Phase 3</td><td><b>Ticket-03</b> (thay đổi luật cũ)</td><td>Tag <code>phase-3</code> trước 16:30</td></tr>
-    <tr class="row-key"><td class="num">16:30</td><td><b>CP4</b>: Phase 4 & Hoàn thiện</td><td><b>Ticket-04</b> (đo đạc số đo, đóng gói)</td><td>Tag <code>phase-4</code> trước 17:30</td></tr>
-    <tr><td class="num">17:15</td><td><b>CP5</b>: Video & Nộp bài</td><td>Quay video demo &lt; 5p, tạo Release <code>v1.0.0</code></td><td>Chốt repo lúc 17:30</td></tr>
+    <tr><td class="num">14:00</td><td><b>CP0 & CP1</b>: Chuẩn bị & Phase 1</td><td><b>PRD-0</b> (tổng quát, mơ hồ) + Test Contract</td><td>Tag <code>phase-1</code> trước 15:00</td></tr>
+    <tr class="row-key"><td class="num">15:00</td><td><b>CP2</b>: Phase 2</td><td><b>Ticket-02</b> (yêu cầu mới, chống hồi quy)</td><td>Tag <code>phase-2</code> trước 16:00</td></tr>
+    <tr><td class="num">16:00</td><td><b>CP3</b>: Phase 3</td><td><b>Ticket-03</b> (thay đổi luật cũ)</td><td>Tag <code>phase-3</code> trước 17:00</td></tr>
+    <tr class="row-key"><td class="num">17:00</td><td><b>CP4</b>: Phase 4 & Hoàn thiện</td><td><b>Ticket-04</b> (đo đạc số đo, đóng gói)</td><td>Tag <code>phase-4</code> trước 18:00</td></tr>
+    <tr><td class="num">17:45</td><td><b>CP5</b>: Video & Nộp bài</td><td>Quay video demo &lt; 5p, tạo Release <code>v1.0.0</code></td><td>Chốt repo lúc 18:00</td></tr>
   </tbody>
 </table>
 <p class="note">Nghỉ giải lao linh hoạt giữa các phase. Hết giờ mỗi phase: <b>gắn tag và đi tiếp</b>, dù phase chưa hoàn hảo. Hạn nộp link LMS: {{DEADLINE}}.</p>
@@ -224,7 +224,7 @@ slide(
   <li>Mỗi phase kéo dài đúng 60 phút. Cần nhắc giờ ở phút 45 và phút 55 của mỗi phase.</li>
   <li>Hết giờ phase nào thì bắt buộc phải commit, tạo tag và push ngay.</li>
   <li>Sau mốc giờ của phase, commit mới cho phase đó có thể không được tính điểm.</li>
-  <li>Lớp sáng bắt đầu lúc 08:30 (sớm hơn 5 tiếng): các mốc lần lượt là 08:30, 09:30, 10:30, 11:30, hết giờ 12:30.</li>
+  <li>Lớp sáng bắt đầu lúc 09:00 (sớm hơn 5 tiếng): các mốc lần lượt là 09:00, 10:00, 11:00, 12:00, hết giờ 13:00.</li>
   <li>Chỗ nào chưa kịp làm xong: ghi trung thực "Chưa đạt" trong file bằng chứng. Ghi trung thực không bị trừ nặng bằng việc sửa kết quả hay giả tạo bằng chứng.</li>
 </ul>
 """,
@@ -236,12 +236,12 @@ slide(
     """
 <h2 class="title">Cả buổi trên một trang: 6 Checkpoints liên hoàn</h2>
 <ol class="loop loop--flow">
-  <li><b>CP0 Chuẩn bị</b><span>13:30–13:40 · Repo public, test môi trường 3D/headless, mở lab board.</span></li>
-  <li><b>CP1 Phase 1</b><span>13:40–14:30 · Đọc PRD-0, tách logic headless, test hợp đồng, tag <code>phase-1</code>.</span></li>
-  <li><b>CP2 Phase 2</b><span>14:30–15:30 · Nhận Ticket-02, thêm tính năng, chống hồi quy, tag <code>phase-2</code>.</span></li>
-  <li><b>CP3 Phase 3</b><span>15:30–16:30 · Nhận Ticket-03, xử lý đổi luật, sửa/bỏ test cũ có lý do, tag <code>phase-3</code>.</span></li>
-  <li><b>CP4 Phase 4</b><span>16:30–17:30 · Nhận Ticket-04, đo số đo thực tế, tạo Release <code>v1.0.0</code>, tag <code>phase-4</code>.</span></li>
-  <li><b>CP5 Nộp bài</b><span>17:15–17:30 · Video &lt; 5p, ghi retro & token, kiểm tra checklist, nộp LMS.</span></li>
+  <li><b>CP0 Chuẩn bị</b><span>14:00–14:10 · Repo public, test môi trường 3D/headless, mở lab board.</span></li>
+  <li><b>CP1 Phase 1</b><span>14:10–15:00 · Đọc PRD-0, tách logic headless, test hợp đồng, tag <code>phase-1</code>.</span></li>
+  <li><b>CP2 Phase 2</b><span>15:00–16:00 · Nhận Ticket-02, thêm tính năng, chống hồi quy, tag <code>phase-2</code>.</span></li>
+  <li><b>CP3 Phase 3</b><span>16:00–17:00 · Nhận Ticket-03, xử lý đổi luật, sửa/bỏ test cũ có lý do, tag <code>phase-3</code>.</span></li>
+  <li><b>CP4 Phase 4</b><span>17:00–18:00 · Nhận Ticket-04, đo số đo thực tế, tạo Release <code>v1.0.0</code>, tag <code>phase-4</code>.</span></li>
+  <li><b>CP5 Nộp bài</b><span>17:45–18:00 · Video &lt; 5p, ghi retro & token, kiểm tra checklist, nộp LMS.</span></li>
 </ol>
 <div class="grid grid-2">
   <section class="panel">
@@ -464,7 +464,7 @@ slide(
     "CP0: Chuẩn bị môi trường",
     f"""
 <h2 class="title">CP0: Chuẩn bị môi trường & Repo sẵn sàng</h2>
-{meta(time="10 phút", when="13:30–13:40", who="Cá nhân", write="<code>README.md</code>, <code>docs/notes/</code>", out="Repo public, chạy thử hello 3D / headless")}
+{meta(time="10 phút", when="14:00–14:10", who="Cá nhân", write="<code>README.md</code>, <code>docs/notes/</code>", out="Repo public, chạy thử hello 3D / headless")}
 <div class="cp-layout">
   <div class="stack">
 <pre class="code code--wrap"><span class="c"># Khởi tạo repo và cấu trúc tài liệu</span>
@@ -512,7 +512,7 @@ slide(
     "CP1: Phase 1 — PRD-0 & Test Contract",
     f"""
 <h2 class="title">CP1: Phase 1 — PRD-0 & Test Contract</h2>
-{meta(time="50 phút", when="13:40–14:30", who="Cá nhân", write="<code>docs/notes/phase1.md</code>, <code>src/</code>", out="Game 3D chơi được, chế độ headless, tag phase-1", tag="phase-1")}
+{meta(time="50 phút", when="14:10–15:00", who="Cá nhân", write="<code>docs/notes/phase1.md</code>, <code>src/</code>", out="Game 3D chơi được, chế độ headless, tag phase-1", tag="phase-1")}
 <div class="cp-layout">
   <div class="stack">
     <section class="panel">
@@ -545,7 +545,7 @@ git push origin phase-1</pre>
 <ul>
   <li>Nhắc học viên tập trung vào Test Contract trước khi trau chuốt đồ họa.</li>
   <li>Chế độ headless là chìa khóa để đạt điểm mục A (30 điểm).</li>
-  <li>Trước 14:30 khoảng 5 phút: nhắc cả lớp chuẩn bị commit và push tag <code>phase-1</code> để đón Ticket-02.</li>
+  <li>Trước 15:00 khoảng 5 phút: nhắc cả lớp chuẩn bị commit và push tag <code>phase-1</code> để đón Ticket-02.</li>
 </ul>
 """,
     cp="1",
@@ -604,7 +604,7 @@ slide(
     "CP2: Phase 2 — Ticket-02 & Chống hồi quy",
     f"""
 <h2 class="title">CP2: Phase 2 — Tiếp nhận Ticket-02, chống hồi quy</h2>
-{meta(time="60 phút", when="14:30–15:30", who="Cá nhân", write="<code>docs/notes/phase2.md</code>, <code>AGENTS.md</code>", out="Tính năng mới chạy đúng, test Phase 1 không hỏng", tag="phase-2")}
+{meta(time="60 phút", when="15:00–16:00", who="Cá nhân", write="<code>docs/notes/phase2.md</code>, <code>AGENTS.md</code>", out="Tính năng mới chạy đúng, test Phase 1 không hỏng", tag="phase-2")}
 <div class="cp-layout">
   <div class="stack">
     <section class="panel">
@@ -635,7 +635,7 @@ git tag phase-2 && git push origin phase-2</pre>
     """
 <strong>Việc của Coach trong CP2</strong>
 <ul>
-  <li>Lúc 14:30 thông báo: "Phase 2 đã mở trên lab board, cả lớp đọc Ticket-02".</li>
+  <li>Lúc 15:00 thông báo: "Phase 2 đã mở trên lab board, cả lớp đọc Ticket-02".</li>
   <li>Nhắc nhở về chống hồi quy (regression): Khi thêm tính năng mới, AI rất hay vô tình sửa đổi signature hàm cũ hoặc làm sai logic cũ.</li>
   <li>Học viên phải chứng minh được: kịch bản của Phase 1 vẫn chạy đúng nguyên vẹn.</li>
 </ul>
@@ -702,7 +702,7 @@ slide(
     "CP3: Phase 3 — Ticket-03: Xử lý thay đổi luật cũ",
     f"""
 <h2 class="title">CP3: Phase 3 — Xử lý thay đổi yêu cầu và luật cũ</h2>
-{meta(time="60 phút", when="15:30–16:30", who="Cá nhân", write="<code>docs/notes/phase3.md</code>, tests", out="Thiết kế mới thích ứng, test cũ được xử lý có lý do", tag="phase-3")}
+{meta(time="60 phút", when="16:00–17:00", who="Cá nhân", write="<code>docs/notes/phase3.md</code>, tests", out="Thiết kế mới thích ứng, test cũ được xử lý có lý do", tag="phase-3")}
 <div class="cp-layout">
   <div class="stack">
     <section class="panel">
@@ -733,7 +733,7 @@ git push origin phase-3</pre>
     """
 <strong>Việc của Coach trong CP3</strong>
 <ul>
-  <li>Lúc 15:30: Thông báo mở Phase 3.</li>
+  <li>Lúc 16:00: Thông báo mở Phase 3.</li>
   <li>Nhấn mạnh: Trong dự án thật, yêu cầu của khách hàng thường xuyên thay đổi. Kỹ sư giỏi không phải là người cãi khách hàng, mà là người biết thích ứng kiến trúc và quản lý tác động (impact analysis).</li>
   <li>Chấm điểm sẽ soi rất kỹ: các test cũ bị thay đổi có được ghi chú lý do đàng hoàng không.</li>
 </ul>
@@ -793,7 +793,7 @@ slide(
     "CP4: Phase 4 — Ticket-04: Đo đạc & Phát hành v1.0.0",
     f"""
 <h2 class="title">CP4: Phase 4 — Hoàn thiện, đo đạc & Release v1.0.0</h2>
-{meta(time="60 phút", when="16:30–17:30", who="Cá nhân", write="<code>README.md</code>, <code>CREDITS.md</code>", out="Bản phát hành chạy được, Release v1.0.0", tag="phase-4")}
+{meta(time="60 phút", when="17:00–18:00", who="Cá nhân", write="<code>README.md</code>, <code>CREDITS.md</code>", out="Bản phát hành chạy được, Release v1.0.0", tag="phase-4")}
 <div class="cp-layout">
   <div class="stack">
     <section class="panel">
@@ -824,7 +824,7 @@ gh release create v1.0.0 --title "v1.0.0 - Bản phát hành chính thức" \\
     """
 <strong>Việc của Coach trong CP4</strong>
 <ul>
-  <li>Lúc 16:30: Mở Phase 4.</li>
+  <li>Lúc 17:00: Mở Phase 4.</li>
   <li>Nhắc học viên dành ít nhất 15 phút cuối của giờ thứ tư cho CP5 (quay video và nộp bài).</li>
   <li>Kiểm tra xem học viên đã tạo GitHub Release v1.0.0 chưa. Release bắt buộc phải có file đính kèm hoặc link thư mục chạy được.</li>
 </ul>
@@ -881,7 +881,7 @@ slide(
     "CP5: Video Demo & Hoàn tất nộp bài",
     f"""
 <h2 class="title">CP5: Video Demo & Hoàn tất nộp bài</h2>
-{meta(time="15 phút cuối", when="17:15–17:30", who="Cá nhân", write="<code>docs/notes/retro.md</code>, Video demo", out="Video demo < 5p, link README, nộp LMS", tag="v1.0.0")}
+{meta(time="15 phút cuối", when="17:45–18:00", who="Cá nhân", write="<code>docs/notes/retro.md</code>, Video demo", out="Video demo < 5p, link README, nộp LMS", tag="v1.0.0")}
 <div class="cp-layout">
   <div class="stack">
     <section class="panel">
@@ -914,7 +914,7 @@ slide(
 <ul>
   <li>Hỗ trợ học viên cách quay màn hình nhanh (Cmd+Shift+5 trên Mac, Win+G hoặc OBS trên Windows).</li>
   <li>Nhắc nhở nộp link repo lên LMS: <b>trước 23h59 đêm nay</b> cho cả hai ca.</li>
-  <li>Sau 17:30: chốt bài lab, không commit thêm mã nguồn sản phẩm.</li>
+  <li>Sau 18:00: chốt bài lab, không commit thêm mã nguồn sản phẩm.</li>
 </ul>
 """,
     cp="5",
@@ -999,7 +999,7 @@ slide(
     <section class="panel">
       <h3>Hạn nộp LMS (GMT+7)</h3>
       <p class="deadline">{{DEADLINE}}</p>
-      <p>Sau giờ lab (17:30 / 12:30), chỉ nộp link; không commit thêm nội dung sản phẩm.</p>
+      <p>Sau giờ lab (18:00 / 13:00), chỉ nộp link; không commit thêm nội dung sản phẩm.</p>
     </section>
     <div class="cta-row">
       <button class="btn-primary" type="button" onclick="window.kickoffLab && window.kickoffLab()">Bắt đầu CP0: Chuẩn bị môi trường</button>

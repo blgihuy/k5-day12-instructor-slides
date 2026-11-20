@@ -1,7 +1,7 @@
 // Morning / afternoon class handling for Day 12.
 //
 // The Day 12 lab counts minutes 0 to 240 (4 hours); the deck writes them as the afternoon class
-// (13:30 to 17:30, minute 0 = 13:30). The morning class runs the same 240 minutes (08:30 to 12:30), shifted by
+// (14:00 to 18:00, minute 0 = 14:00). The morning class runs the same 240 minutes (09:00 to 13:00), shifted by
 // MORNING_SHIFT_HOURS (-5 hours).
 //
 // Slide content is written in afternoon times. localize() shifts every HH:MM between 13:00 and
@@ -12,11 +12,11 @@ export type Session = 'morning' | 'afternoon'
 /** Hour (local time) from which the deck opens as the afternoon class. */
 export const AFTERNOON_FROM_HOUR = 13
 
-/** Morning class = afternoon schedule moved this many hours earlier (13:30 to 08:30). */
+/** Morning class = afternoon schedule moved this many hours earlier (14:00 to 09:00). */
 export const MORNING_SHIFT_HOURS = -5
 
-const AFTERNOON_START = '13:30'
-const AFTERNOON_END = '17:30'
+const AFTERNOON_START = '14:00'
+const AFTERNOON_END = '18:00'
 
 export const SESSION_LABEL: Record<Session, string> = {
   morning: 'Lớp sáng',
