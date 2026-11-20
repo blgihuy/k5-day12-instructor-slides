@@ -23,10 +23,10 @@ export const SESSION_LABEL: Record<Session, string> = {
   afternoon: 'Lớp chiều',
 }
 
-/** Submission deadline (GMT+7) per class. Day 12: ca sáng 23h59 cùng ngày, ca chiều 11h59 trưa hôm sau. */
+/** Submission deadline (GMT+7) per class. Day 12: Trước 23h59 đêm nay. */
 export const DEADLINE: Record<Session, string> = {
-  morning: '23h59 cùng ngày làm lab',
-  afternoon: '11h59 trưa ngày hôm sau',
+  morning: 'trước 23h59 đêm nay',
+  afternoon: 'trước 23h59 đêm nay',
 }
 
 const PARAM = 'ca'

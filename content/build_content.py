@@ -913,7 +913,7 @@ slide(
 <strong>Việc của Coach trong 15 phút cuối</strong>
 <ul>
   <li>Hỗ trợ học viên cách quay màn hình nhanh (Cmd+Shift+5 trên Mac, Win+G hoặc OBS trên Windows).</li>
-  <li>Nhắc nhở nộp link repo lên LMS: ca sáng hạn 23h59 cùng ngày, ca chiều hạn 11h59 hôm sau.</li>
+  <li>Nhắc nhở nộp link repo lên LMS: <b>trước 23h59 đêm nay</b> cho cả hai ca.</li>
   <li>Sau 17:30: chốt bài lab, không commit thêm mã nguồn sản phẩm.</li>
 </ul>
 """,

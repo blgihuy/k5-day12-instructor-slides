@@ -52,8 +52,8 @@ python content/build_content.py
 
 Bài lab diễn ra trong **4 giờ (240 phút)**. Deck quy chuẩn theo giờ lớp chiều và tự động chuyển đổi theo giờ hệ thống khi mở trang:
 
-- **Lớp Sáng**: 08:30 đến 12:30 (Mở trước 13:00). Hạn nộp LMS: **23h59 cùng ngày làm lab**.
-- **Lớp Chiều**: 13:30 đến 17:30 (Mở từ 13:00). Hạn nộp LMS: **11h59 trưa ngày hôm sau**.
+- **Lớp Sáng**: 08:30 đến 12:30 (Mở trước 13:00). Hạn nộp LMS: **Trước 23h59 đêm nay**.
+- **Lớp Chiều**: 13:30 đến 17:30 (Mở từ 13:00). Hạn nộp LMS: **Trước 23h59 đêm nay**.
 
 Tất cả các mốc giờ trên slide, hạn nộp và ghi chú giảng viên tự động tịnh tiến chính xác theo ca đang chọn. Có thể bấm nút chọn ca ở thanh điều khiển trên cùng để đổi nhanh.
 
